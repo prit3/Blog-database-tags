@@ -11,7 +11,7 @@ include ('dbconn.php');
 if (isset($_POST['submit'])){ 
     $tag = $_POST["tag"];
     trim ($tag,"");
-    $mktag = "INSERT INTO `Tags` (`Tag_id`, `Tag`) VALUES (NULL, '$tag')";
+    $mktag = "INSERT INTO `Tags` (`id`, `Tag`) VALUES (NULL, '$tag')";
     
     if (!empty($_POST['tag'])){
         mysqli_query($conn, $mktag);

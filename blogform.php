@@ -22,17 +22,17 @@
         <form action="blogform.php"  method="post">
              Auteurs Naam: 
             <br> 
-                <input type="text" name="naam" placeholder="Naam" value="<?php echo $naam; ?>">
+            <input type="text" name="naam" placeholder="Naam" value="<?php echo $naam; ?>">
             <br>
             <br>
-             Title: 
+            Title: 
             <br> 
-                <input type="text" name="title" placeholder="Title" value="<?php echo $title; ?>" >
+            <input type="text" name="title" placeholder="Title" value="<?php echo $title; ?>" >
             <br>
             <br>
-             Blogtext: 
+            Blogtext: 
             <br> 
-                <textarea name="blogtext" cols="32" rows="4" placeholder="plaats hier je  blog bericht."><?php echo $text; ?></textarea>
+            <textarea name="blogtext" cols="32" rows="4" placeholder="plaats hier je  blog bericht."><?php echo $text; ?></textarea>
             <br>
             Tags:
             <br>
@@ -48,7 +48,7 @@
 
                 if ($result->num_rows > 0){
                     while ($row = $result->fetch_assoc()){
-                        $tag = $row['Tag_id'];
+                        $tag = $row['id'];
                         echo "<input type='radio' name='taged' value='$tag'>";
                         echo $row['Tag'];
                     }

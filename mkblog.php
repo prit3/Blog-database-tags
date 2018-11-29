@@ -15,7 +15,12 @@ $mkblog = "INSERT INTO `BlogPosts` (id, Naam, Title, Blogtext, tijd, Tag_id) VAL
 if (isset($_POST['submit'])){
 	if (!empty($_POST['naam']) && $_POST['title'] && $_POST['blogtext'] && $_POST['taged']){
 	mysqli_query($conn, $mkblog);
-	header("location:viewblog.php");
+    $last_id = $conn->insert_id;
+    var_dump($last_id);
+        
+    
+//	header("location:viewblog.php");
+    
 	}
     else{
         echo "Niet alle velden zijn ingevoerd";
