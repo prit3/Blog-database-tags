@@ -1,0 +1,69 @@
+SELECT * FROM BlogPosts
+JOIN Tags ON BlogPosts.Tag.id = Tags.Tag_id; fals
+
+SELECT * FROM BlogPosts 
+JOIN Tags ON BlogPosts.Tag_id = Tags.Tag_id;
+
+
+
+error_reporting(0);
+var_dump($taged);
+CREATE TABLE articles ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255) NOT NULL,
+description TEXT NOT NULL, category_id INT NOT NULL);
+
+
+
+INTO articles (title, description, category_id)INSERT  
+VALUES ('Intro SQL', 'Lorem ipsum ...',1);
+
+
+ALTER TABLE articles ADD FOREIGN KEY (category_id) REFERENCES categories(id);
+
+UPDATE articles SET category_id = 1 WHERE id = 2;
+
+INSERT INTO articles (title, description, category_id) VALUES ('How to use JOINs part 2' , 'Lorem ipsum ...',2);
+
+DELETE FROM categories WHERE id = 1;
+
+
+INSERT INTO articles (title, description) 
+VALUES ('Intro SQL', 'Lorem ipsum ...');
+
+INSERT INTO articles (title, description) 
+VALUES ('How to use JOINs', 'Lorem ipsum ...');
+
+INSERT INTO articles (title, description) 
+VALUES ('Integrating with MySQL from PHP', 'Lorem ipsum ...');
+
+CREATE TABLE articles_categories (
+   id INT NOT NULL AUTO_INCREMENT,
+   article_id INT NOT NULL,
+   category_id INT NOT NULL,
+   PRIMARY KEY (ID),
+   FOREIGN KEY (article_id) REFERENCES articles(id),
+   FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+
+INSERT INTO articles_categories (article_id, category_id)
+VALUES (1,1);
+
+INSERT INTO articles_categories (article_id, category_id)
+VALUES (2,1);
+
+INSERT INTO articles_categories (article_id, category_id)
+VALUES (3,1);
+
+
+mysql> SELECT a.title, c.name
+    -> FROM articles_categories ac
+    -> JOIN articles a on ac.article_id = a.id
+    -> JOIN categories c on ac.category_id = c.id;
+    
+    
+    CREATE TABLE RelBlogTags (
+   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   Blog_id INT NOT NULL,
+   Tag_id INT NOT NULL,
+   FOREIGN KEY (Blog_id) REFERENCES BlogPosts(id),
+   FOREIGN KEY (Tag_id) REFERENCES Tags(Tag_id)
+);
