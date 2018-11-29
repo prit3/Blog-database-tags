@@ -83,7 +83,7 @@
 
 
                 default:
-                    $post = "SELECT * FROM BlogPosts INNER JOIN Tags on BlogPosts.Tag_id = Tags.id";
+                    $post = "SELECT * FROM BlogPosts";
                     echo "Blog is gesorteert op nieuwste post";
             }
             

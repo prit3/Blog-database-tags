@@ -49,7 +49,7 @@
                 if ($result->num_rows > 0){
                     while ($row = $result->fetch_assoc()){
                         $tag = $row['id'];
-                        echo "<input type='radio' name='taged' value='$tag'>";
+                        echo "<input type='checkbox' name='taged[]' value='$tag'>";
                         echo $row['Tag'];
                     }
                 }
