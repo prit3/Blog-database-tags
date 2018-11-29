@@ -98,18 +98,23 @@
                         echo '<p class="content">';
                             echo "<table>";
                                 echo "<tr>";
-                                echo "<td>"."Tijd:"."</td>";
-                                echo "<td>".$row['tijd']."</td>"."<br>";
+                                    echo "<td>"."Tijd:"."</td>";
+                                    echo "<td>".$row['tijd']."</td>"."<br>";
                                 echo "</tr>";
 
                                 echo "<tr>";
-                                echo "<td>"."Name: "."</td>";
-                                echo "<td>".$row['Naam']."</td>"."<br>";
+                                    echo "<td>"."Name: "."</td>";
+                                    echo "<td>".$row['Naam']."</td>"."<br>";
                                 echo "</tr>";
 
                                 echo "<tr>";
-                                echo "<td>"."Title:"."</td>";
-                                echo "<td>".$row['Title']."</td>"."<br>";
+                                    echo "<td>"."Title:"."</td>";
+                                    echo "<td>".$row['Title']."</td>"."<br>";
+                                echo "</tr>";
+                    
+                                echo "<tr>";
+                                    echo "<td>"."Tag:"."</td>";
+                                    echo "<td>".$row['Tag']."</td>"."<br>";
                                 echo "</tr>";
                             echo "</table>";
                             echo "<br>";
