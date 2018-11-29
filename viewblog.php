@@ -94,24 +94,31 @@
                 while ($row = $result->fetch_assoc()){
                     
                     $tagid = $row['Tag_id'];
-                    
-                    echo "<hr>";
                     echo '<div class=blog>';
-                    echo '<p class="content">';
-                    echo "Tijd:"."&nbsp"."&nbsp"."&nbsp"."&nbsp"."&nbsp"."&nbsp";
-                    echo $row['tijd']."<br>";
-                    echo "Naam:"."&nbsp"."&nbsp";
-                    echo $row['Naam']. "<br>";
-                    echo "title:". "&nbsp"."&nbsp"."&nbsp"."&nbsp"."&nbsp"."&nbsp";
-                    echo $row['Title']. "<br>";
-                    echo "Tag: ";
-                    echo $row['Tag'];
-                    echo "<br>";
-                    echo $row['Blogtext']."</p>";
-                    echo '<a href="editblog.php?id='.$row['id'].'">edit</a>',"&nbsp";
-                    echo '<a href="rmblog.php?id='.$row['id'].'">delete</a>';
+                        echo '<p class="content">';
+                            echo "<table>";
+                                echo "<tr>";
+                                echo "<td>"."Tijd:"."</td>";
+                                echo "<td>".$row['tijd']."</td>"."<br>";
+                                echo "</tr>";
+
+                                echo "<tr>";
+                                echo "<td>"."Name: "."</td>";
+                                echo "<td>".$row['Naam']."</td>"."<br>";
+                                echo "</tr>";
+
+                                echo "<tr>";
+                                echo "<td>"."Title:"."</td>";
+                                echo "<td>".$row['Title']."</td>"."<br>";
+                                echo "</tr>";
+                            echo "</table>";
+                            echo "<br>";
+                            echo $row['Blogtext'];
+                        echo "</p>";
+
+                        echo '<a href="editblog.php?id='.$row['id'].'">edit</a>',"&nbsp";
+                        echo '<a href="rmblog.php?id='.$row['id'].'">delete</a>';
                     echo "</div>";
-                    echo "<hr>";
                         }
                     }
 
