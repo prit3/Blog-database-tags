@@ -1,5 +1,19 @@
 <html>
     <head>
+        <style>
+            .blogtxt{
+                    border:1px solid black; 
+                    width:250px; 
+                    overflow:hidden;
+                    max-height: 40px;
+                    white-space: pre-line;
+                    word-break: break-all;
+                    text-overflow:ellipsis;}
+            .blogtxt:hover{
+                overflow: visible;
+                max-height: none;}
+        
+        </style>
     </head>
     <body style="margin:0;">
         <header style="position: fixed; background-color:gray; width:100%; padding:10px;">
@@ -38,46 +52,46 @@
             
             switch ($sort){
                 case "postDESC":
-                    $post = "SELECT * FROM BlogPosts INNER JOIN Tags on BlogPosts.Tag_id = Tags.id ORDER BY BlogPosts.id DESC";
+                    $post = "SELECT * FROM BlogPosts ORDER BY BlogPosts.id DESC";
                      echo "Blog is gesorteert op nieuwste post";
                     break;
                 case "postASC":
-                    $post = "SELECT * FROM BlogPosts INNER JOIN Tags on BlogPosts.Tag_id = Tags.id ORDER BY BlogPosts.id ASC";
+                    $post = "SELECT * FROM BlogPosts ORDER BY BlogPosts.id ASC";
                      echo "Blog is gesorteert op oudste post";
                     break;
 
                 case "tijdDESC":
-                    $post = "SELECT * FROM BlogPosts INNER JOIN Tags on BlogPosts.Tag_id = Tags.id ORDER BY tijd DESC";
+                    $post = "SELECT * FROM BlogPosts ORDER BY tijd DESC";
                      echo "Blog is gesorteert op nieuwste tijd";
                     break;
 
                 case "tijdASC":
-                    $post = "SELECT * FROM BlogPosts INNER JOIN Tags on BlogPosts.Tag_id = Tags.id ORDER BY tijd ASC";
+                    $post = "SELECT * FROM BlogPosts ORDER BY tijd ASC";
                      echo "Blog is gesorteert op oudste tijd";
                     break;
 
                 case "titleDESC":
-                    $post = "SELECT * FROM BlogPosts INNER JOIN Tags on BlogPosts.Tag_id = Tags.id ORDER BY Title DESC";
+                    $post = "SELECT * FROM BlogPosts ORDER BY Title DESC";
                      echo "Blog is gesorteert op title van Z naar A";
                     break;
 
                 case "titleASC":
-                    $post = "SELECT * FROM BlogPosts INNER JOIN Tags on BlogPosts.Tag_id = Tags.id ORDER BY Title ASC";
+                    $post = "SELECT * FROM BlogPosts ORDER BY Title ASC";
                     echo "Blog is gesorteert op title van A naar Z";
                     break;
 
                 case "naamDESC":
-                    $post = "SELECT * FROM BlogPosts INNER JOIN Tags on BlogPosts.Tag_id = Tags.id ORDER BY Naam DESC";
+                    $post = "SELECT * FROM BlogPosts ORDER BY Naam DESC";
                     echo "Blog is gesorteert op Naam van Z naar A";
                     break;
 
                 case "naamASC":
-                    $post = "SELECT * FROM BlogPosts INNER JOIN Tags on BlogPosts.Tag_id = Tags.id ORDER BY Naam ASC";
+                    $post = "SELECT * FROM BlogPosts ORDER BY Naam ASC";
                     echo "Blog is gesorteert op Naam van A naar Z";
                     break;
 
                 case "tuin";
-                    $post = "SELECT * FROM BlogPosts INNER JOIN Tags on BlogPosts.Tag_id = Tags.id Where Tag_id = 13";
+                    $post = "SELECT * FROM RelBlogTags Where Tag_id = 13";
                     echo "Blog is gefilterd op tuin";
                     break;
 
@@ -118,9 +132,12 @@
                                 echo "</tr>";
                             echo "</table>";
                             echo "<br>";
+                            
+                        echo "</p>";
+                        echo "<p class='blogtxt'>";
                             echo $row['Blogtext'];
                         echo "</p>";
-
+                        
                         echo '<a href="editblog.php?id='.$row['id'].'">edit</a>',"&nbsp";
                         echo '<a href="rmblog.php?id='.$row['id'].'">delete</a>';
                     echo "</div>";
@@ -143,17 +160,4 @@
 </html>
 
 
-<!--
-//                    $tag = "SELECT * FROM Tags where Tag_id='$tagid'";
-//                    $res = $conn->query($tag);
-//
-//                    if ($res->num_rows > 0){
-//                        while ($tagname = $res->fetch_assoc()){
-//
-//
-//                    echo $tagname['Tag'];
-//                    echo "<br>";
-//                        }
-//                    }
-                        
--->
+

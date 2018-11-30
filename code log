@@ -1,3 +1,19 @@
+<!--
+//                    $tag = "SELECT * FROM Tags where Tag_id='$tagid'";
+//                    $res = $conn->query($tag);
+//
+//                    if ($res->num_rows > 0){
+//                        while ($tagname = $res->fetch_assoc()){
+//
+//
+//                    echo $tagname['Tag'];
+//                    echo "<br>";
+//                        }
+//                    }
+                        
+-->
+
+
 SELECT * FROM BlogPosts
 JOIN Tags ON BlogPosts.Tag.id = Tags.Tag_id; fals
 
